@@ -2,7 +2,6 @@
 #define BOOK_H
 #include "author.h"
 
-// TODO: docs
 class Book
 {
 protected:
@@ -62,6 +61,14 @@ public:
 	               const string& name,
 	               const string& surname,
 	               const string& secondName);
+	void setAuthor(const date_t& birthday,
+	               const string& name,
+	               const string& surname,
+	               const string& secondName);
+	void setAuthor(const size_t& day,
+	               const size_t& month,
+	               const size_t& year,
+	               const fullname_t& fullName);
 	void setDate(const date_t& date);
 	void setDate(const size_t& day,
 	             const size_t& month,
