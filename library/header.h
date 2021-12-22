@@ -4,7 +4,10 @@
 #include <string>
 #include <tuple>
 #include <vector>
+#include <algorithm>
 #include <iostream>
+using std::get;
+using std::sort;
 using std::endl;
 using std::cin;
 using std::cout;
