@@ -19,6 +19,25 @@ Author::Author(const size_t& day,
 {
 }
 
+Author::Author(const date_t& birthday,
+               const string& name,
+               const string& surname,
+               const string& secondName) :
+
+	birthday_(birthday),
+	fullName_(name, surname, secondName)
+{
+}
+
+Author::Author(const size_t& day,
+               const size_t& month,
+               const size_t& year,
+               const fullname_t& fullName) :
+	birthday_(day, month, year),
+	fullName_(fullName)
+{
+}
+
 date_t Author::getBirthday() const
 {
 	return birthday_;
