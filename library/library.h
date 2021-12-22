@@ -6,22 +6,27 @@ class Library
 {
 protected:
 	vector<Book> books_;
+
+	void checkIndex_(const size_t& index) const;
 public:
 	Library(const vector<Book>& books);
 	Library();
+
+	size_t size() const;
+	bool isEmpty() const;
 
 	Book at(const size_t& index) const;
 	Book front() const;
 	Book back() const;
 
-	Book insert(const size_t& index, const Book& book);
+	void insert(const size_t& index, const Book& book);
 	void erase(const size_t& index);
 
 	void pushBack(const Book& book);
 	void pushFront(const Book& book);
 
-	void popBack() const;
-	void popFront() const;
+	void popBack();
+	void popFront();
 
 	void sortByName();
 	void sortByPublishingHouse();
