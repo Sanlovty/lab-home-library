@@ -34,13 +34,13 @@ public:
 	// Метод получения ФИО
 	fullname_t getFullName() const;
 
-	// Метод установки дня рождения с разными параметрами
+	// Методы установки дня рождения с разными параметрами
 	void setBirthday(const size_t& day,
 	                 const size_t& month,
 	                 const size_t& year);
 	void setBirthday(const date_t& birthday);
 
-	// Метод установки ФИО с разными параметрами
+	// Методы установки ФИО с разными параметрами
 	void setFullName(const string& name,
 	                 const string& surname,
 	                 const string& secondName);
