@@ -3,7 +3,9 @@
 
 #include <string>
 #include <tuple>
+#include <vector>
 using std::string;
+using std::vector;
 
 template <typename _Ty1, typename _Ty2, typename _Ty3>
 using triple_t = std::tuple<_Ty1, _Ty2, _Ty3>;
