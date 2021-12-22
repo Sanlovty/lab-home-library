@@ -14,10 +14,8 @@ using std::cout;
 using std::exception;
 using std::string;
 using std::vector;
+using std::tuple;
 
-template <typename _Ty1, typename _Ty2, typename _Ty3>
-using triple_t = std::tuple<_Ty1, _Ty2, _Ty3>;
-
-using date_t = triple_t<size_t, size_t, size_t>;
-using fullname_t = triple_t<string, string, string>;
+using date_t = tuple<size_t, size_t, size_t>;
+using fullname_t = tuple<string, string, string>;
 #endif
