@@ -67,3 +67,15 @@ void Author::setFullName(const fullname_t& fullName)
 {
 	fullName_ = fullName;
 }
+
+string Author::toString() const
+{
+	return
+		"Author {\n	Name: " + get<0>(fullName_) +
+		"\n	Surname: " + get<1>(fullName_) +
+		"\n	SecondName: " + get<2>(fullName_) +
+		"\n	Birthday day: " + to_string(get<0>(birthday_)) +
+		"\n	Birthday month: " + to_string(get<1>(birthday_)) +
+		"\n	Birthday year: " + to_string(get<2>(birthday_)) +
+		+"\n}";
+}

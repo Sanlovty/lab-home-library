@@ -97,6 +97,9 @@ public:
 
 	// Метод установки названия издательства с разными параметрами
 	void setPublishingHouse(const string& publishingHouse);
+
+	// Метод, возвращающий Книгу как строку
+	string toString() const;
 };
 
 

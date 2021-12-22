@@ -45,5 +45,8 @@ public:
 	                 const string& surname,
 	                 const string& secondName);
 	void setFullName(const fullname_t& fullName);
+
+	// Метод, возвращающий автора как строку
+	string toString() const;
 };
 #endif

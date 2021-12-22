@@ -152,11 +152,20 @@ void Library::pushBack(const Book& book)
 
 void Library::pushFront(const Book& book)
 {
+	if (isEmpty())
+	{
+		pushBack(book);
+		return;
+	}
 	insert(0, book);
 }
 
 void Library::popBack()
 {
+	if (isEmpty())
+	{
+		checkIndex_(0);
+	}
 	books_.pop_back();
 }
 

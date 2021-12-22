@@ -171,3 +171,15 @@ void Book::setPublishingHouse(const string& publishingHouse)
 {
 	publishingHouse_ = publishingHouse;
 }
+
+string Book::toString() const
+{
+	return "Book {\n Name: " + name_ +
+		"\n Publishing name: " + publishingHouse_ +
+		"\n Isbn: " + to_string(isbn_) +
+		"\n " + author_.toString() +
+		"\n Publishing date day: " + to_string(get<0>(date_)) +
+		"\n Publishing date month: " + to_string(get<1>(date_)) +
+		"\n Publishing date year: " + to_string(get<2>(date_)) +
+		+"\n }";
+}
