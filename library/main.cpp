@@ -228,6 +228,120 @@ int main()
 					break;
 				case '4':
 					{
+						bool isFourthOpen = true;
+						while (isFourthOpen)
+						{
+							if (!_kbhit())
+							{
+								system("cls");
+								cout <<
+									"Sort books menu:\n 1) Sort by name" <<
+									"\n 2) Sort by publishing house " <<
+									"\n 3) Sort by isbn" <<
+									"\n 4) Sort by date" <<
+									"\n 5) Sort by author full name" <<
+									"\n 6) Sort by author birthday date" <<
+									"\n 7) Exit";
+								symbol = static_cast<char>(_getch());
+								switch (symbol)
+								{
+								case '1':
+									{
+										system("cls");
+
+										library.sortByName();
+										cout << "Sorted" << endl;
+										cout << endl << "8) Back";
+										while (symbol != '8')
+										{
+											if (!_kbhit())
+											{
+												symbol = static_cast<char>(_getch());
+											}
+										}
+									}
+									break;
+								case '2':
+									{
+										system("cls");
+										library.sortByPublishingHouse();
+										cout << "Sorted" << endl;
+										cout << endl << "8) Back";
+										while (symbol != '8')
+										{
+											if (!_kbhit())
+											{
+												symbol = static_cast<char>(_getch());
+											}
+										}
+									}
+									break;
+								case '3':
+									{
+										system("cls");
+										library.sortByIsbn();
+										cout << "Sorted" << endl;
+										cout << endl << "8) Back";
+										while (symbol != '8')
+										{
+											if (!_kbhit())
+											{
+												symbol = static_cast<char>(_getch());
+											}
+										}
+									}
+									break;
+								case '4':
+									{
+										system("cls");
+										library.sortByDate();
+										cout << "Sorted" << endl;
+										cout << endl << "8) Back";
+										while (symbol != '8')
+										{
+											if (!_kbhit())
+											{
+												symbol = static_cast<char>(_getch());
+											}
+										}
+									}
+									break;
+								case '5':
+									{
+										system("cls");
+										library.sortByAuthorFullName();
+										cout << "Sorted" << endl;
+										cout << endl << "8) Back";
+										while (symbol != '8')
+										{
+											if (!_kbhit())
+											{
+												symbol = static_cast<char>(_getch());
+											}
+										}
+									}
+									break;
+								case '6':
+									{
+										system("cls");
+										library.sortByAuthorBirthday();
+										cout << "Sorted" << endl;
+										cout << endl << "8) Back";
+										while (symbol != '8')
+										{
+											if (!_kbhit())
+											{
+												symbol = static_cast<char>(_getch());
+											}
+										}
+									}
+									break;
+								case '7':
+									isFourthOpen = false;
+									break;
+								}
+							}
+						}
 					}
 					break;
 				case '5':
