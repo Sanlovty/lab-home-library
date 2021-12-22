@@ -2,6 +2,7 @@
 #define BOOK_H
 #include "author.h"
 
+// TODO: docs
 class Book
 {
 protected:

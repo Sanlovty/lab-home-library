@@ -3,6 +3,7 @@
 
 #include "header.h"
 
+// TODO: docs
 class Author
 {
 protected:
