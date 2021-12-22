@@ -4,6 +4,11 @@
 #include <string>
 #include <tuple>
 #include <vector>
+#include <iostream>
+using std::endl;
+using std::cin;
+using std::cout;
+using std::exception;
 using std::string;
 using std::vector;
 
