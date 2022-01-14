@@ -2,14 +2,11 @@
 #define BOOK_H
 #include "author.h"
 
-// TODO: docs
-class Book
+class Book : public DateClass
 {
 protected:
 	// Автор книги
 	Author author_;
-	// Дата написания книги
-	date_t date_;
 	// Код-ISBN книги
 	size_t isbn_;
 	// Название книги
@@ -19,44 +16,23 @@ protected:
 public:
 	// Конструкторы с различными параметрами:
 	Book(const Author& author,
-	     const date_t& date,
 	     const size_t& isbn,
 	     const string& name,
-	     const string& publishingHouse);
-	Book(const Author& author,
-	     const size_t& day,
-	     const size_t& month,
-	     const size_t& year,
-	     const size_t& isbn,
-	     const string& name,
-	     const string& publishingHouse);
+	     const string& publishingHouse,
+	     const DateClass& publishingDate);
 	Book(const size_t& authorDay,
 	     const size_t& authorMonth,
 	     const size_t& authorYear,
 	     const string& authorName,
 	     const string& authorSurname,
 	     const string& authorSecondName,
-	     const size_t& day,
-	     const size_t& month,
-	     const size_t& year,
 	     const size_t& isbn,
 	     const string& name,
-	     const string& publishingHouse);
-	Book(const size_t& authorDay,
-	     const size_t& authorMonth,
-	     const size_t& authorYear,
-	     const string& authorName,
-	     const string& authorSurname,
-	     const string& authorSecondName,
-	     const date_t& date,
-	     const size_t& isbn,
-	     const string& name,
-	     const string& publishingHouse);
+	     const string& publishingHouse,
+	     const DateClass& publishingDate);
 
 	// Метод получения автора
 	Author getAuthor() const;
-	// Метод получения даты написания
-	date_t getDate() const;
 	// Метод получения кода-isbn
 	size_t getIsbn() const;
 	// Метод получения названия книги
@@ -82,12 +58,6 @@ public:
 	               const size_t& month,
 	               const size_t& year,
 	               const fullname_t& fullName);
-
-	// Методы установки даты написания с разными параметрами
-	void setDate(const date_t& date);
-	void setDate(const size_t& day,
-	             const size_t& month,
-	             const size_t& year);
 
 	// Метод установки кода-isbn с разными параметрами
 	void setIsbn(const size_t& isbn);

@@ -2,7 +2,6 @@
 #define LIBRARY_H
 #include "book.h"
 
-// TODO : docs
 class Library
 {
 protected:

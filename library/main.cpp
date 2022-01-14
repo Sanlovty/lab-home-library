@@ -8,11 +8,11 @@ Book getBookFromInput()
 	size_t authorDay, authorMonth, authorYear, bookDay, bookMonth, bookYear,
 	       bookIsbn;
 	cout << "Fill the book parameters:" << endl;
-	cout << "	Book author's surname = ";
+	cout << "	Book author's name = ";
 	getline(cin, authorName);
-	cout << "	Book author's secondName = ";
+	cout << "	Book author's surname = ";
 	getline(cin, authorSurname);
-	cout << "	Book author's authorSecondName = ";
+	cout << "	Book author's secondName = ";
 	getline(cin, authorSecondName);
 	cout << "	Book author's birthday day = ";
 	cin >> authorDay;
@@ -37,20 +37,20 @@ Book getBookFromInput()
 
 	return Book(
 		Author(
-			authorDay,
-			authorMonth,
-			authorYear,
 			authorName,
 			authorSurname,
-			authorSecondName
-		),
-		bookDay,
-		bookMonth,
-		bookYear,
+			authorSecondName,
+			DateClass(
+				authorDay,
+				authorMonth,
+				authorYear)),
 		bookIsbn,
 		bookName,
-		bookPublishingHouse
-	);
+		bookPublishingHouse,
+		DateClass(
+			bookDay,
+			bookMonth,
+			bookYear));
 }
 
 int main()

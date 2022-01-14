@@ -1,44 +1,26 @@
 #ifndef AUTHOR_H
 #define AUTHOR_H
 
+#include "date_class.h"
 #include "header.h"
 
-class Author
+class Author : public DateClass
 {
 protected:
-	// Дата рождения автора
-	date_t birthday_;
 	// ФИО автора
 	fullname_t fullName_;
 public:
 	// Конструкторы с различными параметрами:
-	Author(const date_t& birthday,
-	       const fullname_t& fullName);
-	Author(const size_t& day,
-	       const size_t& month,
-	       const size_t& year,
-	       const string& name,
+	Author(const fullname_t& fullName,
+	       const DateClass& birthday);
+	Author(const string& name,
 	       const string& surname,
-	       const string& secondName);
-	Author(const date_t& birthday,
-	       const string& name,
-	       const string& surname,
-	       const string& secondName);
-	Author(const size_t& day,
-	       const size_t& month,
-	       const size_t& year,
-	       const fullname_t& fullName);
+	       const string& secondName,
+	       const DateClass& birthday);
 
-	// Метод получения дня рождения
-	date_t getBirthday() const;
 	// Метод получения ФИО
 	fullname_t getFullName() const;
 
-	// Методы установки дня рождения с разными параметрами
-	void setBirthday(const size_t& day,
-	                 const size_t& month,
-	                 const size_t& year);
-	void setBirthday(const date_t& birthday);
 
 	// Методы установки ФИО с разными параметрами
 	void setFullName(const string& name,

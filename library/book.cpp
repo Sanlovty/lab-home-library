@@ -1,34 +1,18 @@
 #include "book.h"
 
 Book::Book(const Author& author,
-           const date_t& date,
            const size_t& isbn,
            const string& name,
-           const string& publishingHouse) :
+           const string& publishingHouse,
+           const DateClass& publishingDate) :
+	DateClass(publishingDate),
 	author_(author),
-	date_(date),
 	isbn_(isbn),
 	name_(name),
 	publishingHouse_(publishingHouse)
 {
 }
 
-Book::Book(const Author& author,
-           const size_t& day,
-           const size_t& month,
-           const size_t& year,
-           const size_t& isbn,
-           const string& name,
-           const string& publishingHouse) :
-	author_(author),
-	date_(day,
-	      month,
-	      year),
-	isbn_(isbn),
-	name_(name),
-	publishingHouse_(publishingHouse)
-{
-}
 
 Book::Book(const size_t& authorDay,
            const size_t& authorMonth,
@@ -36,44 +20,19 @@ Book::Book(const size_t& authorDay,
            const string& authorName,
            const string& authorSurname,
            const string& authorSecondName,
-           const size_t& day,
-           const size_t& month,
-           const size_t& year,
            const size_t& isbn,
            const string& name,
-           const string& publishingHouse):
-	author_(authorDay,
-	        authorMonth,
-	        authorYear,
-	        authorName,
-	        authorSurname,
-	        authorSecondName),
-	date_(day,
-	      month,
-	      year),
-	isbn_(isbn),
-	name_(name),
-	publishingHouse_(publishingHouse)
-{
-}
-
-Book::Book(const size_t& authorDay,
-           const size_t& authorMonth,
-           const size_t& authorYear,
-           const string& authorName,
-           const string& authorSurname,
-           const string& authorSecondName,
-           const date_t& date,
-           const size_t& isbn,
-           const string& name,
-           const string& publishingHouse):
-	author_(authorDay,
-	        authorMonth,
-	        authorYear,
-	        authorName,
-	        authorSurname,
-	        authorSecondName),
-	date_(date),
+           const string& publishingHouse,
+           const DateClass& publishingDate):
+	DateClass(publishingDate),
+	author_(
+		authorName,
+		authorSurname,
+		authorSecondName,
+		DateClass(authorDay,
+		          authorMonth,
+		          authorYear)
+	),
 	isbn_(isbn),
 	name_(name),
 	publishingHouse_(publishingHouse)
@@ -83,11 +42,6 @@ Book::Book(const size_t& authorDay,
 Author Book::getAuthor() const
 {
 	return author_;
-}
-
-date_t Book::getDate() const
-{
-	return date_;
 }
 
 size_t Book::getIsbn() const
@@ -112,18 +66,19 @@ void Book::setAuthor(const Author& author)
 
 void Book::setAuthor(const date_t& birthday, const fullname_t& fullName)
 {
-	author_ = Author(birthday, fullName);
+	author_ = Author(fullName, birthday);
 }
 
 void Book::setAuthor(const size_t& day, const size_t& month, const size_t& year, const string& name,
                      const string& surname, const string& secondName)
 {
-	author_ = Author(day,
-	                 month,
-	                 year,
-	                 name,
-	                 surname,
-	                 secondName);
+	author_ = Author(
+		name,
+		surname,
+		secondName,
+		DateClass(day,
+		          month,
+		          year));
 }
 
 void Book::setAuthor(const date_t& birthday,
@@ -132,10 +87,10 @@ void Book::setAuthor(const date_t& birthday,
                      const string& secondName)
 {
 	author_ = Author(
-		birthday,
 		fullname_t(name,
 		           surname,
-		           secondName)
+		           secondName),
+		birthday
 	);
 }
 
@@ -144,18 +99,9 @@ void Book::setAuthor(const size_t& day,
                      const size_t& year,
                      const fullname_t& fullName)
 {
-	author_ = Author(date_t(day, month, year), fullName);
+	author_ = Author(fullName, DateClass(day, month, year));
 }
 
-void Book::setDate(const date_t& date)
-{
-	date_ = date;
-}
-
-void Book::setDate(const size_t& day, const size_t& month, const size_t& year)
-{
-	date_ = date_t(day, month, year);
-}
 
 void Book::setIsbn(const size_t& isbn)
 {
@@ -178,8 +124,8 @@ string Book::toString() const
 		"\n Publishing name: " + publishingHouse_ +
 		"\n Isbn: " + to_string(isbn_) +
 		"\n " + author_.toString() +
-		"\n Publishing date day: " + to_string(get<0>(date_)) +
-		"\n Publishing date month: " + to_string(get<1>(date_)) +
-		"\n Publishing date year: " + to_string(get<2>(date_)) +
+		"\n Publishing date day: " + to_string(getDay()) +
+		"\n Publishing date month: " + to_string(getMonth()) +
+		"\n Publishing date year: " + to_string(getYear()) +
 		+"\n }";
 }

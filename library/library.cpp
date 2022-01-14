@@ -64,7 +64,7 @@ bool Library::compareBooksDate_(const Book& first, const Book& second)
 
 bool Library::compareBooksAuthorBirthday_(const Book& first, const Book& second)
 {
-	return compareDate_(first.getAuthor().getBirthday(), second.getAuthor().getBirthday());
+	return compareDate_(first.getAuthor().getDate(), second.getAuthor().getDate());
 }
 
 bool Library::compareBooksAuthorFullName_(const Book& first, const Book& second)
